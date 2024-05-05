@@ -33,21 +33,21 @@ const questions = [
     correctAnswer: "Parijs"
   },
   {
-    question: "Hoeveel planeten zijn er in ons zonnestelsel?",
-    correctAnswer: "Acht"
-  },
-  {
     question: "Wat is de grootste planeet in ons zonnestelsel?",
     correctAnswer: "Jupiter"
   },
   {
-    question: "Hoeveel continenten zijn er op aarde?",
-    correctAnswer: "Zeven"
+    question: "Wat is de hoofdstad van Japan?",
+    correctAnswer: "Tokyo"
   },
   {
-    question: "Wat is de hoofdstad van Japan?",
-    correctAnswer: "Tokio"
-  }
+    question: "Wat is de hoofdstad van België",
+    correctAnswer: "Brussel"
+  },
+  {
+    question: "Wat is de hoofdstad van Nederland?",
+    correctAnswer: "Amsterdam"
+  },
 ];
 
 function readQuestion() {
@@ -58,24 +58,30 @@ function readQuestion() {
 }
 
 recognition.onresult = function(event) {
-  const speechResult = event.results[0][0].transcript.trim().toLowerCase();
-  const question = questions[currentQuestionIndex];
-  const answerContainer = document.querySelector("#output");
-  
-  if (speechResult === question.correctAnswer.toLowerCase()) {
-    answerContainer.innerHTML = "<span class='correct'>Correct: " + question.correctAnswer + "</span>";
-    nextBtn.style.display = "inline"; // Toon de knop voor de volgende vraag
-  } else {
-    answerContainer.innerHTML = "<span class='incorrect'>Fout: " + speechResult + "</span>";
-  }
-  
-  antwoordBtn.disabled = false;
+    console.log("Speech recognition result ontvangen...");
+    const speechResult = event.results[0][0].transcript;
+    console.log("Spraakherkenningsresultaat:", speechResult);
+    const question = questions[currentQuestionIndex];
+    const answerContainer = document.querySelector("#output");
+    
+    if (speechResult === question.correctAnswer) {
+      answerContainer.innerHTML = "<span class='correct'>Correct: " + question.correctAnswer + "</span>";
+      nextBtn.style.display = "inline"; // Toon de knop voor de volgende vraag
+    } else {
+      answerContainer.innerHTML = "<span class='incorrect'>Fout: " + speechResult + "</span>";
+    }
+    
+    antwoordBtn.disabled = false;
 };
 
+  
+
 antwoordBtn.addEventListener("click", function() {
-  recognition.start();
-  antwoordBtn.disabled = true;
-});
+    console.log("Antwoordknop geklikt...");
+    recognition.start();
+    antwoordBtn.disabled = true;
+  });
+  
 
 nextBtn.addEventListener("click", function() {
   currentQuestionIndex++;
