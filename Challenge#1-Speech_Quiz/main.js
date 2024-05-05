@@ -42,6 +42,7 @@ const questions = [
 function readQuestion() {
   const question = questions[currentQuestionIndex];
   utterance.text = question.question;
+  document.querySelector("#output").innerHTML = ""; // Leeg de output container
   synth.speak(utterance);
 }
 
