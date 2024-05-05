@@ -18,9 +18,9 @@ function matchVoiceToLang(voice) {
   return false;
 }
 
-document.querySelector("#btnSpeak").addEventListener("click", readQuestion);
+document.querySelector("#voorleesBtn").addEventListener("click", readQuestion);
 
-const speakBtn = document.querySelector("#speakBtn");
+const antwoordBtn = document.querySelector("#antwoordBtn");
 const nextBtn = document.querySelector("#nextBtn"); // Knop voor volgende vraag
 const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 recognition.lang = 'nl-BE';
@@ -36,7 +36,18 @@ const questions = [
     question: "Hoeveel planeten zijn er in ons zonnestelsel?",
     correctAnswer: "Acht"
   },
-  // Voeg hier meer vragen toe
+  {
+    question: "Wat is de grootste planeet in ons zonnestelsel?",
+    correctAnswer: "Jupiter"
+  },
+  {
+    question: "Hoeveel continenten zijn er op aarde?",
+    correctAnswer: "Zeven"
+  },
+  {
+    question: "Wat is de hoofdstad van Japan?",
+    correctAnswer: "Tokio"
+  }
 ];
 
 function readQuestion() {
@@ -58,12 +69,12 @@ recognition.onresult = function(event) {
     answerContainer.innerHTML = "<span class='incorrect'>Fout: " + speechResult + "</span>";
   }
   
-  speakBtn.disabled = false;
+  antwoordBtn.disabled = false;
 };
 
-speakBtn.addEventListener("click", function() {
+antwoordBtn.addEventListener("click", function() {
   recognition.start();
-  speakBtn.disabled = true;
+  antwoordBtn.disabled = true;
 });
 
 nextBtn.addEventListener("click", function() {
@@ -73,5 +84,6 @@ nextBtn.addEventListener("click", function() {
     nextBtn.style.display = "none"; // Verberg de knop voor de volgende vraag
   } else {
     document.querySelector("#output").innerHTML = "<span class='correct'>Alle vragen zijn beantwoord!</span>";
+    document.querySelector("#answers").innerHTML = ""; // Leeg de antwoordlijst
   }
 });
