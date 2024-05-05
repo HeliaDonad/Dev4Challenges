@@ -6,9 +6,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column; 
     height: 100vh;
   }
-  
+
   .container {
     max-width: 800px;
     margin: 0 auto;
@@ -17,18 +18,32 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column; /* Stapel de elementen verticaal op */
-    align-items: center; /* Centreer de elementen horizontaal */
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 10px; 
+    margin-bottom: 5px; 
+    font-size: 40px;
   }
   
-  /* Knopstijlen */
+  h2 {
+    text-align: center;
+    margin-top: 5px; 
+    margin-bottom: 20px; 
+  }
+  
+  
   button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    margin-right: 10px; /* Ruimte tussen de knoppen toevoegen */
+    margin-right: 10px; 
     transition: background-color 0.3s ease;
   }
   

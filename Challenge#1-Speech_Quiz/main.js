@@ -93,7 +93,7 @@ nextBtn.addEventListener("click", function() {
     readQuestion();
     nextBtn.style.display = "none"; // Verberg de knop voor de volgende vraag
   } else {
-    document.querySelector("#output").innerHTML = "<span class='correct'>Alle vragen zijn beantwoord!</span>";
+    document.querySelector("#output").innerHTML = "<span class='correct'>Proficiat! Alle vragen zijn beantwoord!</span>";
     document.querySelector("#answers").innerHTML = ""; // Leeg de antwoordlijst
   }
 });
