@@ -1,13 +1,67 @@
-#answers li {
-    list-style: none;
-    margin: 5px 0;
-    font-weight: bold;
+/* Algemene opmaak */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
-
+  
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Knopstijlen */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:nth-of-type(1) {
+    background-color: black; /* Zwarte knop */
+    color: #fff;
+  }
+  
+  button:nth-of-type(2) {
+    background-color: #ffce00; /* Gele knop */
+    color: #000;
+  }
+  
+  button:nth-of-type(3) {
+    background-color: #ed2939; /* Rode knop */
+    color: #fff;
+  }
+  
+  button:hover {
+    filter: brightness(0.8); /* Donkerder tint bij hover */
+  }
+  
+  /* Output container */
+  #output {
+    margin-top: 20px;
+  }
+  
+  /* Antwoordstijlen */
   .correct {
     color: green;
+    font-weight: bold;
   }
-
+  
   .incorrect {
     color: red;
+    font-weight: bold;
   }
+  

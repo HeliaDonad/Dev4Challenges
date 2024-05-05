@@ -29,24 +29,24 @@ let currentQuestionIndex = 0;
 
 const questions = [
   {
-    question: "Wat is de hoofdstad van Frankrijk?",
-    correctAnswer: "Parijs"
-  },
-  {
-    question: "Wat is de grootste planeet in ons zonnestelsel?",
-    correctAnswer: "Jupiter"
-  },
-  {
-    question: "Wat is de hoofdstad van Japan?",
-    correctAnswer: "Tokyo"
-  },
-  {
-    question: "Wat is de hoofdstad van België",
+    question: "In welke Belgische stad bevindt zich het beroemde surrealistische kunstmuseum ontworpen door René Magritte?",
     correctAnswer: "Brussel"
   },
   {
-    question: "Wat is de hoofdstad van Nederland?",
-    correctAnswer: "Amsterdam"
+    question: "Wat is het beroemde standbeeld dat bekend staat als het symbool van Brussel en afgebeeld wordt als een plassend jongetje?",
+    correctAnswer: "Manneke Pis"
+  },
+  {
+    question: "Welke Belgische stripheld heeft een hond genaamd Bobbie en beleeft spannende avonturen?",
+    correctAnswer: "Kuifje"
+  },
+  {
+    question: "Hoe noem je het grote metalen monument in Brussel?",
+    correctAnswer: "Atomium"
+  },
+  {
+    question: "Wat is de naam van het Belgische bier dat bekend staat om zijn fruitige smaak en aroma?",
+    correctAnswer: "Kriek"
   },
 ];
 
