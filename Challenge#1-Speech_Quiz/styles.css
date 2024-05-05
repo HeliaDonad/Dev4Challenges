@@ -1,0 +1,13 @@
+#answers li {
+    list-style: none;
+    margin: 5px 0;
+    font-weight: bold;
+  }
+
+  .correct {
+    color: green;
+  }
+
+  .incorrect {
+    color: red;
+  }
