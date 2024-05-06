@@ -63,7 +63,7 @@ function drawFingers() {
   push();
   rectMode(CORNERS);
   noStroke();
-  fill(255, 0, 0);
+  fill('#3478dd');
   if (predictions[0] && predictions[0].hasOwnProperty('annotations')) {
     let index1 = predictions[0].annotations.indexFinger[0];
     let index2 = predictions[0].annotations.indexFinger[1];
@@ -106,7 +106,7 @@ function gameOver() {
   textAlign(CENTER, CENTER);
   fill('#3478dd');
   textStyle(BOLD);
-  text("Je hebt de laatste bubbel kunnen poppen!\nGefeliciteerd, je hebt het spel voltooid.", width / 2, height / 2);
+  text("Je hebt de laatste bubbel kunnen poppen!\nGefeliciteerd, je hebt het spel voltooid.",  width / 2, height / 2);
   noLoop(); // Stop het tekenen van het canvas
 }
 
