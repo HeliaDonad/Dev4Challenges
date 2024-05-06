@@ -19,7 +19,7 @@ function setup() {
 
   // Afbeelding laden en bubbels initialiseren
   loadImage('images/bubble.png', img => {
-    for (let i = 0; i < 10; i++) { // 5 bubbels toegevoegd
+    for (let i = 0; i < 10; i++) { // 10 bubbels toegevoegd
       let x = random(width);
       let y = random(height);
       let size = random(20, 50); // Willekeurige grootte tussen 20 en 50
@@ -95,7 +95,19 @@ function checkBubblePop() {
         bubbles.splice(i, 1);
       }
     }
+    if (bubbles.length === 0) { // Als er geen bubbels meer zijn
+      gameOver(); // Roep de gameOver functie aan
+    }
   }
+}
+
+function gameOver() {
+  textSize(32);
+  textAlign(CENTER, CENTER);
+  fill('#3478dd');
+  textStyle(BOLD);
+  text("Je hebt de laatste bubbel kunnen poppen!\nGefeliciteerd, je hebt het spel voltooid.", width / 2, height / 2);
+  noLoop(); // Stop het tekenen van het canvas
 }
 
 class Bubble {
