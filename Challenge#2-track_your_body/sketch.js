@@ -22,7 +22,7 @@ function setup() {
     for (let i = 0; i < 10; i++) { // 10 bubbels toegevoegd
       let x = random(width);
       let y = random(height);
-      let size = random(20, 50); // Willekeurige grootte tussen 20 en 50
+      let size = random(20, 70); // Willekeurige grootte tussen 20 en 70
       let speedX = random(-1, 1); // Willekeurige horizontale snelheid
       let speedY = random(-1, 1); // Willekeurige verticale snelheid
       bubbles.push(new Bubble(x, y, size, img, speedX, speedY)); // Bewegingssnelheden toegevoegd
