@@ -19,11 +19,13 @@ function setup() {
 
   // Afbeelding laden en bubbels initialiseren
   loadImage('images/bubble.png', img => {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 10; i++) { // 5 bubbels toegevoegd
       let x = random(width);
       let y = random(height);
       let size = random(20, 50); // Willekeurige grootte tussen 20 en 50
-      bubbles.push(new Bubble(x, y, size, img));
+      let speedX = random(-1, 1); // Willekeurige horizontale snelheid
+      let speedY = random(-1, 1); // Willekeurige verticale snelheid
+      bubbles.push(new Bubble(x, y, size, img, speedX, speedY)); // Bewegingssnelheden toegevoegd
     }
   });
 }
@@ -67,14 +69,14 @@ function drawFingers() {
     let index2 = predictions[0].annotations.indexFinger[1];
     let index3 = predictions[0].annotations.indexFinger[2];
     let index4 = predictions[0].annotations.indexFinger[3];
-    circle(index4[0], index4[1], 10);// index4[2]);
+    circle(index4[0], index4[1], 10); // index4[2]);
   }
   pop();
 }
 
 function updateBubbles() {
-  for (let i = bubbles.length - 1; i >= 0; i--) {
-    bubbles[i].move();
+  for (let i = 0; i < bubbles.length; i++) { // Loop door alle bubbels
+    bubbles[i].move(); // Beweeg elke bubbel
   }
 }
 
@@ -89,7 +91,7 @@ function checkBubblePop() {
     let indexFinger = predictions[0].annotations.indexFinger[3];
     for (let i = bubbles.length - 1; i >= 0; i--) {
       let d = dist(indexFinger[0], indexFinger[1], bubbles[i].x, bubbles[i].y);
-      if (d < bubbles[i].size / 2) { // Check if finger is inside the bubble
+      if (d < bubbles[i].size / 2) { // Vinger binnen de bubbel
         bubbles.splice(i, 1);
       }
     }
@@ -97,15 +99,27 @@ function checkBubblePop() {
 }
 
 class Bubble {
-  constructor(x, y, size, img) {
+  constructor(x, y, size, img, speedX, speedY) {
     this.x = x;
     this.y = y;
     this.size = size;
     this.img = img;
+    this.speedX = speedX; // Horizontale snelheid
+    this.speedY = speedY; // Verticale snelheid
   }
 
   move() {
-    // Bubbels kunnen worden verplaatst als dat nodig is
+    // Bubbels bewegen willekeurig
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    // Bubbels stuiteren terug als ze de rand van het canvas raken
+    if (this.x <= 0 || this.x >= width) {
+      this.speedX *= -1;
+    }
+    if (this.y <= 0 || this.y >= height) {
+      this.speedY *= -1;
+    }
   }
 
   display() {
