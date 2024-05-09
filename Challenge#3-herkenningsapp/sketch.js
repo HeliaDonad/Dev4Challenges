@@ -32,20 +32,17 @@ function gotResult(err, results) {
 }
 
 function displayObjects() {
+  let resultsDiv = document.getElementById("results");
+  resultsDiv.innerHTML = ""; 
   for (let i = 0; i < objects.length; i++) {
     if (objects[i].confidence > 0.5) {
-      for (let i = 0; i < objects.length; i++) {
-        if (objects[i].confidence > 0.5) {
-          noStroke();
-          fill(0, 208, 133);
-          // textSize(8);
-          text(objects[i].label + " " + nfc(objects[i].confidence * 100.0, 2) + "%", objects[i].x + 8, objects[i].y + 12);
-          noFill();
-          strokeWeight(4);
-          stroke(0, 208, 133);
-          rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
-        }
-      }
+      noStroke();
+      fill(0, 208, 133);
+      text(objects[i].label + " " + nfc(objects[i].confidence * 100.0, 2) + "%", objects[i].x + 8, objects[i].y + 12);
+      noFill();
+      strokeWeight(4);
+      stroke(0, 208, 133);
+      rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
     }
   }
 }
