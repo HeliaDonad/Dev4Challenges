@@ -4,7 +4,7 @@ let objects = [];
 let modelLoaded = false;
 
 function setup() {
-  createCanvas(540, 380);
+  createCanvas(640, 480);
   video = createCapture(VIDEO, () => {
     video.size(540, 380);
     document.getElementById('camera-container').appendChild(video.elt);
