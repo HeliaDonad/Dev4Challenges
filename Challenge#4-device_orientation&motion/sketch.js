@@ -62,8 +62,10 @@ function handleOrientation(event) {
 
 function chooseLeft() {
     leftCount++;
-    const currentChoice = "Left";
-    document.getElementById('answer').innerText = currentChoice;
+    //const currentChoice = "Left";
+    //document.getElementById('answer').innerText = currentChoice;
+    const choiceImage = document.getElementById('leftChoice').src;
+    document.getElementById('answer').innerHTML = `<img src="${choiceImage}" alt="Left">`;
     // Antwoord en de "Ga Verder" knop tonen, keuze knoppen verbergen
     document.getElementById('answer').style.display = 'block';
     document.getElementById('continueButton').style.display = 'block';
@@ -72,8 +74,10 @@ function chooseLeft() {
 
 function chooseRight() {
     rightCount++;
-    const currentChoice = "Right";
-    document.getElementById('answer').innerText = currentChoice;
+    //const currentChoice = "Right";
+    //document.getElementById('answer').innerText = currentChoice;
+    const choiceImage = document.getElementById('rightChoice').src;
+    document.getElementById('answer').innerHTML = `<img src="${choiceImage}" alt="Right">`;
     // Antwoord en de "Ga Verder" knop tonen, keuze knoppen verbergen
     document.getElementById('answer').style.display = 'block';
     document.getElementById('continueButton').style.display = 'block';
@@ -96,14 +100,26 @@ function nextQuestion() {
 
 function displayResult() {
     let result;
+    let resultImage;
     if (rightCount > leftCount) {
-        result = "golden retriever";
+        resultImage = document.createElement('img');
+        resultImage.src = "images/golden_retriever.jpg";
+        resultImage.alt = "golden retriever";
     } else if (leftCount > rightCount) {
-        result = "black cat";
+        resultImage = document.createElement('img');
+        resultImage.src = "images/black_cat.jpg";
+        resultImage.alt = "black cat";
     } else {
         result = "gelijkspel"; // mag nooit gebeuren --> daarom altijd oneven vragen
     }
-    document.getElementById('result').innerText = result;
+
+    const resultContainer = document.getElementById('result');
+    resultContainer.innerHTML = ''; // Verwijder eventuele vorige inhoud
+    if (resultImage) {
+        resultContainer.appendChild(resultImage);
+    } else {
+        resultContainer.innerText = result;
+    }
 }
 
 // Start het spel door de eerste vraag weer te geven
