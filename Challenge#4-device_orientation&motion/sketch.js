@@ -1,17 +1,27 @@
 const questions = [
-    "Would you rather never read another book or never hear another song?",
-    "Would you rather control the emotions of those around you or control the weather?",
-    "Would you rather be unattractive but super funny or beautiful but quite boring?",
-    "Would you rather live in a world without music or a world without movies?",
-    "Would you rather go into the past and meet your ancestors or go into the future and meet your great-great-grandchildren?",
+    "Would you rather read or do sports?",
+    "Would you rather have invisibility or flight?",
+    "Would you rather live in the mountains or at the beach?",
+    "Would you rather prefer winter or summer?",
+    "Would you rather play video games or go to the gym?",
+    "Would you rather eat something salty or sweet?",
+    "Would you rather watch a horror movie or a romantic movie?",
+    "Would you rather study scientific subjects or humanistic subjects?",
+    "Would you rather eat sushi or pizza?",
+    "Would you rather have a elegant style or an sporty style?",
 ];
 
 const choices = [
-    { left: "never read another book", right: "never hear another song" },
-    { left: "control the emotions of those around you", right: "control the weather" },
-    { left: "unattractive but super funny", right: "beautiful but quite boring" },
-    { left: "world without music", right: "world without movies" },
-    { left: "go into the past and meet your ancestors", right: "go into the future and meet your great-great-grandchildren" },
+    { left: "images/read.jpg", right: "images/sport.jpg" },
+    { left: "images/invisibility.svg", right: "images/flight.svg" },
+    { left: "images/mountain.svg", right: "images/beach.svg" },
+    { left: "images/winter.svg", right: "images/summer.svg" },
+    { left: "images/videogames.svg", right: "images/gym.svg" },
+    { left: "images/salty.svg", right: "images/sweet.svg" },
+    { left: "images/horrormovie.svg", right: "images/romanticmovie.svg" },
+    { left: "images/scientific.svg", right: "images/humanistic.svg" },
+    { left: "images/sushi.svg", right: "images/pizza.svg" },
+    { left: "images/elegantstyle.svg", right: "images/sportystyle.svg" },
 ];
 
 let currentQuestionIndex = 0;
@@ -22,20 +32,20 @@ function displayQuestion(index) {
     const question = questions[index];
     const choice = choices[index];
 
-    // vraag tonen
+    // Toon de vraag
     document.getElementById('question').innerText = question;
 
-    // keuzes bewaren
-    document.getElementById('leftChoice').innerText = choice.left;
-    document.getElementById('rightChoice').innerText = choice.right;
+    // Stel de bronnen van de afbeeldingen in
+    document.getElementById('leftChoice').src = choice.left;
+    document.getElementById('rightChoice').src = choice.right;
 
-    // keuze knoppen tonen en verbergen van "Ga Verder" knop en het antwoord
+    // Toon de keuze knoppen en verberg de "Ga Verder" knop en het antwoord
     document.getElementById('choices').style.display = 'block';
     document.getElementById('continueButton').style.display = 'none';
     document.getElementById('answer').style.display = 'none';
 }
 
-// bewegingen van het apparaat detecteren en neem keuzes op basis van de beweging
+// Detecteer bewegingen van het apparaat en neem keuzes op basis van de beweging
 window.addEventListener("deviceorientation", handleOrientation, true);
 
 function handleOrientation(event) {
@@ -52,9 +62,9 @@ function handleOrientation(event) {
 
 function chooseLeft() {
     leftCount++;
-    const currentChoice = choices[currentQuestionIndex].left;
+    const currentChoice = "Left";
     document.getElementById('answer').innerText = currentChoice;
-    // antwoord en de "Ga Verder" knop, keuze knoppen verborgen
+    // Antwoord en de "Ga Verder" knop tonen, keuze knoppen verbergen
     document.getElementById('answer').style.display = 'block';
     document.getElementById('continueButton').style.display = 'block';
     document.getElementById('choices').style.display = 'none';
@@ -62,9 +72,9 @@ function chooseLeft() {
 
 function chooseRight() {
     rightCount++;
-    const currentChoice = choices[currentQuestionIndex].right;
+    const currentChoice = "Right";
     document.getElementById('answer').innerText = currentChoice;
-    // antwoord en de "Ga Verder" knop, keuze knoppen verborgen
+    // Antwoord en de "Ga Verder" knop tonen, keuze knoppen verbergen
     document.getElementById('answer').style.display = 'block';
     document.getElementById('continueButton').style.display = 'block';
     document.getElementById('choices').style.display = 'none';
@@ -79,7 +89,7 @@ function nextQuestion() {
         // Alle vragen zijn beantwoord
         document.getElementById('questionContainer').style.display = 'none';
         document.getElementById('resultContainer').style.display = 'block';
-        // resultaat op basis van de keuzes van de gebruiker
+        // Resultaat op basis van de keuzes van de gebruiker
         displayResult();
     }
 }
@@ -87,14 +97,14 @@ function nextQuestion() {
 function displayResult() {
     let result;
     if (rightCount > leftCount) {
-        result = "rechts";
+        result = "golden retriever";
     } else if (leftCount > rightCount) {
-        result = "links";
+        result = "black cat";
     } else {
         result = "gelijkspel";
     }
     document.getElementById('result').innerText = result;
 }
 
-// Start spel + eerste vraag weergeven
+// Start het spel door de eerste vraag weer te geven
 displayQuestion(0);
