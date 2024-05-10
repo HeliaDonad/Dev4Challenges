@@ -8,7 +8,7 @@ const questions = [
     "Would you rather watch a horror movie or a romantic movie?",
     "Would you rather study scientific subjects or humanistic subjects?",
     "Would you rather eat sushi or pizza?",
-    "Would you rather have a elegant style or an sporty style?",
+    //"Would you rather have a elegant style or an sporty style?",
 ];
 
 const choices = [
@@ -21,7 +21,7 @@ const choices = [
     { left: "images/horrormovie.jpg", right: "images/romanticmovie.jpg" },
     { left: "images/scientific.jpg", right: "images/humanistic.jpg" },
     { left: "images/sushi.jpg", right: "images/pizza.jpg" },
-    { left: "images/elegantstyle.jpg", right: "images/sportystyle.jpg" },
+    //{ left: "images/elegantstyle.jpg", right: "images/sportystyle.jpg" },
 ];
 
 let currentQuestionIndex = 0;
@@ -114,7 +114,7 @@ function displayResult() {
     }
 
     const resultContainer = document.getElementById('result');
-    resultContainer.innerHTML = ''; // Verwijder eventuele vorige inhoud
+    resultContainer.innerHTML = ''; 
     if (resultImage) {
         resultContainer.appendChild(resultImage);
     } else {

@@ -4,25 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Would You Rather Game</title>
-    <link rel="stylesheet" href="normalize.css">
-	<link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin: 0 auto; 
+            display: block; 
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #4571cf;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease; 
+            border-radius: 20px;
+        }
+
+        button:hover {
+            background-color: #1644a7;
+        }
+
+        .cat-and-dog-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .cat-and-dog-images img {
+            width: 150px;
+            height: 150px;
+            margin: 0 10px;
+            border-radius: 50%; 
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-    <div id="questionContainer">
-        <h1 id="question"></h1>
-        <div id="choices">
-            <img id="leftChoice" onclick="chooseLeft()" src="" alt="Left">
-            <img id="rightChoice" onclick="chooseRight()" src="" alt="Right">
+    <div class="container">
+        <h1>Are you a black cat or a golden retriever?</h1>
+        <div class="cat-and-dog-images">
+            <img src="images/black_cat.jpg" alt="Black Cat">
+            <img src="images/golden_retriever.jpg" alt="Golden Retriever">
         </div>
-        <button id="continueButton" onclick="nextQuestion()" style="display: none;">Ga Verder</button>
-        <p id="answer" style="display: none;"></p>
+        <button onclick="startGame()">Start</button>
     </div>
-
-    <div id="resultContainer" style="display: none;">
-        <h1>Your result:</h1>
-        <p id="result"></p>
-    </div>
-
-    <script src="sketch.js"></script>
+    <script>
+        function startGame() {
+            window.location.href = "game.html";
+        }
+    </script>
 </body>
 </html>
