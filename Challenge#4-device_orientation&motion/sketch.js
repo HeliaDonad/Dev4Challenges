@@ -13,15 +13,15 @@ const questions = [
 
 const choices = [
     { left: "images/read.jpg", right: "images/sport.jpg" },
-    { left: "images/invisibility.svg", right: "images/flight.svg" },
-    { left: "images/mountain.svg", right: "images/beach.svg" },
-    { left: "images/winter.svg", right: "images/summer.svg" },
-    { left: "images/videogames.svg", right: "images/gym.svg" },
-    { left: "images/salty.svg", right: "images/sweet.svg" },
-    { left: "images/horrormovie.svg", right: "images/romanticmovie.svg" },
-    { left: "images/scientific.svg", right: "images/humanistic.svg" },
-    { left: "images/sushi.svg", right: "images/pizza.svg" },
-    { left: "images/elegantstyle.svg", right: "images/sportystyle.svg" },
+    { left: "images/invisibility.jpg", right: "images/flight.jpg" },
+    { left: "images/mountain.jpg", right: "images/beach.jpg" },
+    { left: "images/winter.jpg", right: "images/summer.jpg" },
+    { left: "images/videogames.jpg", right: "images/gym.jpg" },
+    { left: "images/salty.jpg", right: "images/sweet.jpg" },
+    { left: "images/horrormovie.jpg", right: "images/romanticmovie.jpg" },
+    { left: "images/scientific.jpg", right: "images/humanistic.jpg" },
+    { left: "images/sushi.jpg", right: "images/pizza.jpg" },
+    { left: "images/elegantstyle.jpg", right: "images/sportystyle.jpg" },
 ];
 
 let currentQuestionIndex = 0;
@@ -101,7 +101,7 @@ function displayResult() {
     } else if (leftCount > rightCount) {
         result = "black cat";
     } else {
-        result = "gelijkspel";
+        result = "gelijkspel"; // mag nooit gebeuren --> daarom altijd oneven vragen
     }
     document.getElementById('result').innerText = result;
 }
