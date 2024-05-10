@@ -7,33 +7,35 @@ const questions = [
 ];
 
 const choices = [
-    { right: "never read another book", left: "never hear another song" },
-    { right: "control the emotions of those around you", left: "control the weather" },
-    { right: "unattractive but super funny", left: "beautiful but quite boring" },
-    { right: "world without music", left: "world without movies" },
-    { right: "go into the past and meet your ancestors", left: "go into the future and meet your great-great-grandchildren" },
+    { left: "never read another book", right: "never hear another song" },
+    { left: "control the emotions of those around you", right: "control the weather" },
+    { left: "unattractive but super funny", right: "beautiful but quite boring" },
+    { left: "world without music", right: "world without movies" },
+    { left: "go into the past and meet your ancestors", right: "go into the future and meet your great-great-grandchildren" },
 ];
 
 let currentQuestionIndex = 0;
+let rightCount = 0;
+let leftCount = 0;
 
 function displayQuestion(index) {
     const question = questions[index];
     const choice = choices[index];
 
-    // Toon de vraag
+    // vraag tonen
     document.getElementById('question').innerText = question;
 
-    // Bewaar de keuzes
+    // keuzes bewaren
     document.getElementById('leftChoice').innerText = choice.left;
     document.getElementById('rightChoice').innerText = choice.right;
 
-    // Toon de keuze knoppen en verberg de "Ga Verder" knop en het antwoord
+    // keuze knoppen tonen en verbergen van "Ga Verder" knop en het antwoord
     document.getElementById('choices').style.display = 'block';
     document.getElementById('continueButton').style.display = 'none';
     document.getElementById('answer').style.display = 'none';
 }
 
-// Detecteer bewegingen van het apparaat en neem keuzes op basis van de beweging
+// bewegingen van het apparaat detecteren en neem keuzes op basis van de beweging
 window.addEventListener("deviceorientation", handleOrientation, true);
 
 function handleOrientation(event) {
@@ -49,18 +51,20 @@ function handleOrientation(event) {
 }
 
 function chooseLeft() {
+    leftCount++;
     const currentChoice = choices[currentQuestionIndex].left;
     document.getElementById('answer').innerText = currentChoice;
-    // Toon het antwoord en de "Ga Verder" knop, en verberg de keuze knoppen
+    // antwoord en de "Ga Verder" knop, keuze knoppen verborgen
     document.getElementById('answer').style.display = 'block';
     document.getElementById('continueButton').style.display = 'block';
     document.getElementById('choices').style.display = 'none';
 }
 
 function chooseRight() {
+    rightCount++;
     const currentChoice = choices[currentQuestionIndex].right;
     document.getElementById('answer').innerText = currentChoice;
-    // Toon het antwoord en de "Ga Verder" knop, en verberg de keuze knoppen
+    // antwoord en de "Ga Verder" knop, keuze knoppen verborgen
     document.getElementById('answer').style.display = 'block';
     document.getElementById('continueButton').style.display = 'block';
     document.getElementById('choices').style.display = 'none';
@@ -75,9 +79,22 @@ function nextQuestion() {
         // Alle vragen zijn beantwoord
         document.getElementById('questionContainer').style.display = 'none';
         document.getElementById('resultContainer').style.display = 'block';
-        // Toon resultaat op basis van de keuzes van de gebruiker
+        // resultaat op basis van de keuzes van de gebruiker
+        displayResult();
     }
 }
 
-// Start het spel door de eerste vraag weer te geven
+function displayResult() {
+    let result;
+    if (rightCount > leftCount) {
+        result = "rechts";
+    } else if (leftCount > rightCount) {
+        result = "links";
+    } else {
+        result = "gelijkspel";
+    }
+    document.getElementById('result').innerText = result;
+}
+
+// Start spel + eerste vraag weergeven
 displayQuestion(0);
