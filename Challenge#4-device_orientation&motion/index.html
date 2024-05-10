@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Would You Rather Game</title>
+    <style>
+        /* Voeg hier je CSS-stijlen toe */
+    </style>
 </head>
 <body>
     <div id="questionContainer">
@@ -13,11 +16,12 @@
             <button id="rightChoice" onclick="chooseRight()">Right</button>
         </div>
         <button id="continueButton" onclick="nextQuestion()" style="display: none;">Ga Verder</button>
+        <p id="answer" style="display: none;"></p>
     </div>
 
     <div id="resultContainer" style="display: none;">
         <h1>Your result:</h1>
-        <p id="answer"></p>
+        <p id="result"></p>
     </div>
 
     <script src="sketch.js"></script>

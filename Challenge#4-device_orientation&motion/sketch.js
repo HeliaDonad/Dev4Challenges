@@ -20,18 +20,20 @@ function displayQuestion(index) {
     const question = questions[index];
     const choice = choices[index];
 
-    // Toon vraag
+    // Toon de vraag
     document.getElementById('question').innerText = question;
 
-    // Bewaar keuzes
+    // Bewaar de keuzes
     document.getElementById('leftChoice').innerText = choice.left;
     document.getElementById('rightChoice').innerText = choice.right;
 
-    // "Ga Verder" knop verbergen
+    // Toon de keuze knoppen en verberg de "Ga Verder" knop en het antwoord
+    document.getElementById('choices').style.display = 'block';
     document.getElementById('continueButton').style.display = 'none';
+    document.getElementById('answer').style.display = 'none';
 }
 
-// bewegingen van het apparaat detecteren en keuzes op basis van de beweging
+// Detecteer bewegingen van het apparaat en neem keuzes op basis van de beweging
 window.addEventListener("deviceorientation", handleOrientation, true);
 
 function handleOrientation(event) {
@@ -49,15 +51,19 @@ function handleOrientation(event) {
 function chooseLeft() {
     const currentChoice = choices[currentQuestionIndex].left;
     document.getElementById('answer').innerText = currentChoice;
-    // "Ga Verder" knop
+    // Toon het antwoord en de "Ga Verder" knop, en verberg de keuze knoppen
+    document.getElementById('answer').style.display = 'block';
     document.getElementById('continueButton').style.display = 'block';
+    document.getElementById('choices').style.display = 'none';
 }
 
 function chooseRight() {
     const currentChoice = choices[currentQuestionIndex].right;
     document.getElementById('answer').innerText = currentChoice;
-    // "Ga Verder" knop
+    // Toon het antwoord en de "Ga Verder" knop, en verberg de keuze knoppen
+    document.getElementById('answer').style.display = 'block';
     document.getElementById('continueButton').style.display = 'block';
+    document.getElementById('choices').style.display = 'none';
 }
 
 function nextQuestion() {
@@ -69,9 +75,9 @@ function nextQuestion() {
         // Alle vragen zijn beantwoord
         document.getElementById('questionContainer').style.display = 'none';
         document.getElementById('resultContainer').style.display = 'block';
-        // resultaat op basis van de keuzes van de gebruiker
+        // Toon resultaat op basis van de keuzes van de gebruiker
     }
 }
 
-// Start het spel + eerste vraag weer te geven
+// Start het spel door de eerste vraag weer te geven
 displayQuestion(0);
