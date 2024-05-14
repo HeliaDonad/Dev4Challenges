@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seven Wonders Explorer</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <style>
-    #map { height: 400px; }
-  </style>
+  <title>Zeven moderne wereldwonderen</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="map"></div>
+  <div class="container">
+    <h1>Verken de Zeven moderne wereldwonderen</h1>
+    <p>Welkom bij het avontuur van je leven! Pak je rugzak, trek je wandelschoenen aan en bereid je voor om de moderne wonderen van de wereld te ontdekken. Van majestueuze architectuur tot adembenemende landschappen, deze wereldgame neemt je mee op een reis vol avontuur.</p>
+    <button onclick="startGame()">Start</button>
+  </div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="main.js"></script>
+  <script>
+    function startGame() {
+      window.location.href = "citygame.html"; // Navigeer naar de citygame.html pagina
+    }
+  </script>
 </body>
 </html>
